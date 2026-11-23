@@ -1,5 +1,5 @@
 # Gobierno de merges: aprobación de un admin → auto-merge.
-# Corre con el código de main (workflow_run); publica el status requerido
+# Corre con el código de master (workflow_run); publica el status requerido
 # "governance/admin-approvals" con la GitHub App de plataforma.
 name: Governance
 
@@ -19,7 +19,7 @@ jobs:
   governance:
     name: Governance
     if: github.event.workflow_run.head_repository.full_name == github.repository
-    uses: QuantumTechPE/qt-infra/.github/workflows/service-governance.yml@main
+    uses: QuantumTechPE/qt-infra/.github/workflows/service-governance.yml@master
     permissions:
       contents: read
       id-token: write

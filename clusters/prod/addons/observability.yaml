@@ -9,7 +9,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/QuantumTechPE/qt-infra.git
-    targetRevision: main
+    targetRevision: master
     path: k8s/charts/observability
     helm:
       releaseName: observability

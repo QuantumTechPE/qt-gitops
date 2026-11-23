@@ -9,14 +9,14 @@ spec:
   project: default
   sources:
     - repoURL: https://github.com/QuantumTechPE/qt-infra.git
-      targetRevision: main
+      targetRevision: master
       path: k8s/charts/cluster-config
       helm:
         releaseName: cluster-config
         valueFiles:
           - $values/clusters/prod/cluster-config.values.yaml
     - repoURL: https://github.com/QuantumTechPE/qt-gitops.git
-      targetRevision: main
+      targetRevision: master
       ref: values
   destination:
     server: https://kubernetes.default.svc
