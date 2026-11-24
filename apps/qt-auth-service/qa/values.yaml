@@ -1,5 +1,56 @@
-# qt-auth-service · qa: snapshot GENERADO por el pipeline de CD de
-# https://github.com/QuantumTechPE/qt-auth-service a partir de su carpeta deploy/.
-# Mientras no haya una versión promovida (image.digest vacío) no se despliega nada.
+# GENERADO por el pipeline de CD desde QuantumTechPE/qt-auth-service@2291ae380fcc44b18977cc4e14c0db3f5992dfa0 (qa). No editar a mano:
+# la configuración se cambia en la carpeta deploy/ del repo del microservicio.
+containerPort: 8080
+probes:
+  liveness:
+    path: /q/health/live
+    initialDelaySeconds: 15
+  readiness:
+    path: /q/health/ready
+    initialDelaySeconds: 5
+ingress:
+  enabled: true
+  subdomain: qt
+  path: /api/auth
+metrics:
+  enabled: true
+  path: /q/metrics
+configFiles:
+  mountPath: /deployments/config
+  files:
+    application.properties: |
+      # =============================================================================
+      # QA · sobrescribe src/main/resources/application.properties en el clúster qa.
+      # Se monta como ConfigMap en /deployments/config/application.properties.
+      # Solo propiedades de RUNTIME. Secretos: NUNCA aquí → deploy/vault/secrets.yaml
+      # =============================================================================
+      quarkus.log.level=INFO
+      quarkus.log.category."com.qt".level=INFO
+
+      # Ejemplos (descomenta y ajusta):
+      # quarkus.datasource.jdbc.url=jdbc:postgresql://postgres-qa:5432/qt
+      # quarkus.rest-client.otro-servicio.url=http://otro-servicio.otro-servicio.svc
+config:
+  JAVA_MAX_MEM_RATIO: "75"
+resources:
+  requests:
+    cpu: 250m
+    memory: 384Mi
+  limits:
+    cpu: "1"
+    memory: 768Mi
+autoscaling:
+  enabled: true
+  minReplicas: 1
+  maxReplicas: 3
+  targetCPUUtilizationPercentage: 75
+  targetMemoryUtilizationPercentage: 0
+  scaleDownStabilizationSeconds: 300
+podDisruptionBudget:
+  enabled: false
+secrets:
+  enabled: true
 image:
-  digest: ""
+  repository: ghcr.io/quantumtechpe/qt-auth-service
+  digest: sha256:ab44ee67d955e030f899e522f3d55b395c7f308655303e205af1cffff0ce13dc
+  tag: v0.0.1-rc.1
