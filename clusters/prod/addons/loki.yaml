@@ -39,6 +39,8 @@ spec:
             delete_request_store: filesystem
         singleBinary:
           replicas: 1
+          # Recursos de este ambiente: ver docs/recursos.md de qt-infra
+          resources: {requests: {cpu: 200m, memory: 512Mi}, limits: {memory: 2Gi}}
           persistence:
             enabled: true
             size: 50Gi
