@@ -51,6 +51,4 @@ podDisruptionBudget:
 secrets:
   enabled: true
 image:
-  repository: ghcr.io/quantumtechpe/qt-auth-service
-  digest: sha256:f8c5c537d6e78f2fecb7ce21a8b1bbbbcf2047c1bd6cf7e418226a84b82024b3
-  tag: v0.0.1-rc.2
+  tag: retiro
