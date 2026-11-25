@@ -7,7 +7,7 @@ metadata:
   name: services
   namespace: argocd
 spec:
-  description: Microservicios de la organización (qa)
+  description: Microservicios de la organización (cert)
   sourceRepos:
     - https://github.com/QuantumTechPE/qt-infra.git
     - https://github.com/QuantumTechPE/qt-gitops.git

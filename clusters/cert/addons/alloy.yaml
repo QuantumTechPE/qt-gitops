@@ -1,4 +1,4 @@
-# Recolector de logs (qa): Grafana Alloy lee los logs de todos los pods vía la
+# Recolector de logs (cert): Grafana Alloy lee los logs de todos los pods vía la
 # API de Kubernetes y los envía a Loki con etiquetas namespace, pod, container, app.
 apiVersion: argoproj.io/v1alpha1
 kind: Application
@@ -57,7 +57,7 @@ spec:
 
               loki.process "environment" {
                 stage.static_labels {
-                  values = { environment = "qa" }
+                  values = { environment = "cert" }
                 }
                 forward_to = [loki.write.default.receiver]
               }

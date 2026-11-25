@@ -14,7 +14,7 @@ spec:
       helm:
         releaseName: cluster-config
         valueFiles:
-          - $values/clusters/qa/cluster-config.values.yaml
+          - $values/clusters/cert/cluster-config.values.yaml
     - repoURL: https://github.com/QuantumTechPE/qt-gitops.git
       targetRevision: master
       ref: values

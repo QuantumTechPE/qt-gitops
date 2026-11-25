@@ -1,5 +1,5 @@
-# Observabilidad (qa): Prometheus + Alertmanager + Grafana + node-exporter + kube-state-metrics.
-# Grafana: http://grafana.qa.192.168.18.47.nip.io (admin en Vault: secret/platform/observability/qa)
+# Observabilidad (cert): Prometheus + Alertmanager + Grafana + node-exporter + kube-state-metrics.
+# Grafana: http://grafana.cert.192.168.18.47.nip.io (admin en Vault: secret/platform/observability/cert)
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -47,7 +47,7 @@ spec:
             resources: {requests: {cpu: 200m, memory: 1536Mi}, limits: {memory: 3Gi}}
             retention: 7d
             externalLabels:
-              environment: qa
+              environment: cert
             # Recoge TODOS los ServiceMonitor/PrometheusRule del clúster (los de cada microservicio)
             serviceMonitorSelectorNilUsesHelmValues: false
             podMonitorSelectorNilUsesHelmValues: false
@@ -69,7 +69,7 @@ spec:
             enabled: true
             ingressClassName: traefik
             hosts:
-              - grafana.qa.192.168.18.47.nip.io
+              - grafana.cert.192.168.18.47.nip.io
           defaultDashboardsTimezone: browser
           sidecar:
             resources: {requests: {cpu: 10m, memory: 64Mi}, limits: {memory: 256Mi}}

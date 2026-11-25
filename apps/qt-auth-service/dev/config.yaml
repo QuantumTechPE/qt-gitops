@@ -1,0 +1,19 @@
+# GENERADO por el CD de qt-config desde QuantumTechPE/qt-config (migración inicial: dev/qt-auth-service-dev.yaml). No editar a mano:
+# la configuración del ambiente se cambia con un PR en qt-config.
+config:
+  # Heap de la JVM = 75 % del límite de memoria del pod
+  JAVA_MAX_MEM_RATIO: "75"
+configFiles:
+  files:
+    # Sobrescribe src/main/resources/application.properties en el clúster dev.
+    # Solo propiedades de RUNTIME (las de build, como quarkus.http.root-path, no aplican).
+    application.properties: |
+      quarkus.log.level=INFO
+      quarkus.log.category."com.qt".level=DEBUG
+
+      # Ejemplos (descomenta y ajusta):
+      # quarkus.datasource.jdbc.url=jdbc:postgresql://postgres-dev:5432/qt
+      # quarkus.rest-client.otro-servicio.url=http://otro-servicio.otro-servicio.svc
+      # quarkus.http.cors.origins=https://qt.dev.miempresa.local
+secrets:
+  enabled: true
