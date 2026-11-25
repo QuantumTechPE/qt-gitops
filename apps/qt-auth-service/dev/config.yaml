@@ -1,8 +1,10 @@
-# GENERADO por el CD de qt-config desde QuantumTechPE/qt-config (migración inicial: dev/qt-auth-service-dev.yaml). No editar a mano:
+# GENERADO por el CD de qt-config desde QuantumTechPE/qt-config (pre-develop:dev/qt-auth-service-dev.yaml). No editar a mano:
 # la configuración del ambiente se cambia con un PR en qt-config.
 config:
   # Heap de la JVM = 75 % del límite de memoria del pod
   JAVA_MAX_MEM_RATIO: "75"
+  # Logs y fechas del servidor en hora de Lima
+  TZ: America/Lima
 configFiles:
   files:
     # Sobrescribe src/main/resources/application.properties en el clúster dev.
