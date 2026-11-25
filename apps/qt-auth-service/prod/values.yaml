@@ -17,22 +17,6 @@ metrics:
   path: /q/metrics
 configFiles:
   mountPath: /deployments/config
-  files:
-    application.properties: |
-      # =============================================================================
-      # PROD · sobrescribe src/main/resources/application.properties en el clúster prod.
-      # Se monta como ConfigMap en /deployments/config/application.properties.
-      # Solo propiedades de RUNTIME. Secretos: NUNCA aquí → deploy/vault/secrets.yaml
-      # =============================================================================
-      quarkus.log.level=INFO
-      quarkus.log.category."com.qt".level=INFO
-
-      # Ejemplos (descomenta y ajusta):
-      # quarkus.datasource.jdbc.url=jdbc:postgresql://postgres-prod:5432/qt
-      # quarkus.datasource.jdbc.max-size=20
-      # quarkus.rest-client.otro-servicio.url=http://otro-servicio.otro-servicio.svc
-config:
-  JAVA_MAX_MEM_RATIO: "75"
 resources:
   requests:
     cpu: 500m
@@ -51,8 +35,7 @@ podDisruptionBudget:
   enabled: true
   minAvailable: 1
 spreadAcrossNodes: true
-secrets:
-  enabled: true
+secrets: {}
 image:
   repository: ghcr.io/quantumtechpe/qt-auth-service
   digest: sha256:7623725ef8df6f441f201c19008db470687521da4d5d6bfa7c522a4308e5adfe

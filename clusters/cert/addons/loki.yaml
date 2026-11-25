@@ -1,4 +1,4 @@
-# Logs (qa): Loki en modo SingleBinary con almacenamiento en disco del clúster.
+# Logs (cert): Loki en modo SingleBinary con almacenamiento en disco del clúster.
 # Retención: 168h. Grafana lo consulta como datasource "Loki".
 apiVersion: argoproj.io/v1alpha1
 kind: Application

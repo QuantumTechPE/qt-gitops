@@ -1,4 +1,4 @@
-# Observabilidad de la plataforma (qa): admin de Grafana desde Vault,
+# Observabilidad de la plataforma (cert): admin de Grafana desde Vault,
 # dashboard "QT · Microservicios" y alertas. Chart en qt-infra.
 apiVersion: argoproj.io/v1alpha1
 kind: Application
@@ -15,7 +15,7 @@ spec:
       releaseName: observability
       parameters:
         - name: environment
-          value: qa
+          value: cert
   destination:
     server: https://kubernetes.default.svc
     namespace: monitoring
