@@ -1,0 +1,13 @@
+# GENERADO por el CD de qt-config desde QuantumTechPE/qt-config (develop:cert/qt-portal-cert.yaml). No editar a mano:
+# la configuración del ambiente se cambia con un PR en qt-config.
+config: {}
+configFiles:
+  files:
+    config.json: |
+      {
+        "appName": "qt-portal",
+        "environment": "cert",
+        "apiBaseUrl": "/api"
+      }
+secrets:
+  enabled: false
