@@ -29,6 +29,4 @@ autoscaling:
 podDisruptionBudget:
   enabled: false
 image:
-  repository: ghcr.io/quantumtechpe/qt-portal
-  digest: sha256:0e3b83bef9fa97f9d389ba93081a7e7530435516fbe4b2a8156b6f4bc60cd605
-  tag: v0.1.0-rc.1
+  tag: retiro
