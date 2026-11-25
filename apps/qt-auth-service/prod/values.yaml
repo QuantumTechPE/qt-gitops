@@ -1,5 +1,59 @@
-# qt-auth-service · prod: snapshot GENERADO por el pipeline de CD de
-# https://github.com/QuantumTechPE/qt-auth-service a partir de su carpeta deploy/.
-# Mientras no haya una versión promovida (image.digest vacío) no se despliega nada.
+# GENERADO por el pipeline de CD desde QuantumTechPE/qt-auth-service@a1f52b2da0789059943b03f8bf9c7ea6f927f853 (prod). No editar a mano:
+# la configuración se cambia en la carpeta deploy/ del repo del microservicio.
+containerPort: 8080
+probes:
+  liveness:
+    path: /q/health/live
+    initialDelaySeconds: 15
+  readiness:
+    path: /q/health/ready
+    initialDelaySeconds: 5
+ingress:
+  enabled: true
+  subdomain: qt
+  path: /api/auth
+metrics:
+  enabled: true
+  path: /q/metrics
+configFiles:
+  mountPath: /deployments/config
+  files:
+    application.properties: |
+      # =============================================================================
+      # PROD · sobrescribe src/main/resources/application.properties en el clúster prod.
+      # Se monta como ConfigMap en /deployments/config/application.properties.
+      # Solo propiedades de RUNTIME. Secretos: NUNCA aquí → deploy/vault/secrets.yaml
+      # =============================================================================
+      quarkus.log.level=INFO
+      quarkus.log.category."com.qt".level=INFO
+
+      # Ejemplos (descomenta y ajusta):
+      # quarkus.datasource.jdbc.url=jdbc:postgresql://postgres-prod:5432/qt
+      # quarkus.datasource.jdbc.max-size=20
+      # quarkus.rest-client.otro-servicio.url=http://otro-servicio.otro-servicio.svc
+config:
+  JAVA_MAX_MEM_RATIO: "75"
+resources:
+  requests:
+    cpu: 500m
+    memory: 512Mi
+  limits:
+    cpu: 1500m
+    memory: 1Gi
+autoscaling:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 6
+  targetCPUUtilizationPercentage: 70
+  targetMemoryUtilizationPercentage: 80
+  scaleDownStabilizationSeconds: 600
+podDisruptionBudget:
+  enabled: true
+  minAvailable: 1
+spreadAcrossNodes: true
+secrets:
+  enabled: true
 image:
-  digest: ""
+  repository: ghcr.io/quantumtechpe/qt-auth-service
+  digest: sha256:f8c5c537d6e78f2fecb7ce21a8b1bbbbcf2047c1bd6cf7e418226a84b82024b3
+  tag: v0.0.1-rc.2
