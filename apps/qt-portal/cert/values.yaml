@@ -1,5 +1,34 @@
-# qt-portal · cert: snapshot GENERADO por el pipeline de CD de
-# https://github.com/QuantumTechPE/qt-portal a partir de su carpeta deploy/.
-# Mientras no haya una versión promovida (image.digest vacío) no se despliega nada.
+# GENERADO por el pipeline de CD desde QuantumTechPE/qt-portal@83179ed2ad39bf21cbfc5e6461cf54534c4cf127 (cert). No editar a mano:
+# lo técnico se cambia en deploy/ del microservicio; la configuración, en qt-config.
+containerPort: 8080
+probes:
+  liveness:
+    path: /healthz
+    initialDelaySeconds: 3
+  readiness:
+    path: /healthz
+    initialDelaySeconds: 2
+ingress:
+  enabled: true
+  subdomain: qt
+  path: /
+metrics:
+  enabled: false
+configFiles:
+  mountPath: /usr/share/nginx/html/runtime
+replicaCount: 1
+resources:
+  requests:
+    cpu: 20m
+    memory: 32Mi
+  limits:
+    cpu: 300m
+    memory: 96Mi
+autoscaling:
+  enabled: false
+podDisruptionBudget:
+  enabled: false
 image:
-  digest: ""
+  repository: ghcr.io/quantumtechpe/qt-portal
+  digest: sha256:0e3b83bef9fa97f9d389ba93081a7e7530435516fbe4b2a8156b6f4bc60cd605
+  tag: v0.1.0-rc.1
