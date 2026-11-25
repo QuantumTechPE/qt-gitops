@@ -1,4 +1,4 @@
-# GENERADO por el CD de qt-config desde QuantumTechPE/qt-config (migración inicial: cert/qt-auth-service-cert.yaml). No editar a mano:
+# GENERADO por el CD de qt-config desde QuantumTechPE/qt-config@2dbeed9 (develop:cert/qt-auth-service-cert.yaml). No editar a mano:
 # la configuración del ambiente se cambia con un PR en qt-config.
 config:
   # Heap de la JVM = 75 % del límite de memoria del pod
