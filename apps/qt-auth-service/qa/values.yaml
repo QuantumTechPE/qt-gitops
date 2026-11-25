@@ -1,4 +1,4 @@
-# GENERADO por el pipeline de CD desde QuantumTechPE/qt-auth-service@4372e7979e1d5cb08e3f34f3da9abde771d9f6a0 (qa). No editar a mano:
+# GENERADO por el pipeline de CD desde QuantumTechPE/qt-auth-service@41e43f79b747e991e8eafcdeedea634b1b0c8699 (qa). No editar a mano:
 # la configuración se cambia en la carpeta deploy/ del repo del microservicio.
 containerPort: 8080
 probes:
@@ -52,5 +52,5 @@ secrets:
   enabled: true
 image:
   repository: ghcr.io/quantumtechpe/qt-auth-service
-  digest: sha256:45c367323b5917ce34203cda082d86899e0fa4f69a77d400cc7f23e686247246
-  tag: v0.0.2-rc.1
+  digest: sha256:7623725ef8df6f441f201c19008db470687521da4d5d6bfa7c522a4308e5adfe
+  tag: v0.1.0-rc.1
