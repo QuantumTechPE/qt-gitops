@@ -1,4 +1,4 @@
-# GENERADO por el pipeline de CD desde QuantumTechPE/qt-auth-service@a5d1d644a23574fcda7e10928ef58377ab85f0d3 (dev). No editar a mano:
+# GENERADO por el pipeline de CD desde QuantumTechPE/qt-auth-service@dd76dd3ef33ca04fd6cb0c3ff0c8c29469017c6c (dev). No editar a mano:
 # lo técnico se cambia en deploy/ del microservicio; la configuración, en qt-config.
 containerPort: 8080
 probes:
@@ -15,6 +15,9 @@ ingress:
 metrics:
   enabled: true
   path: /q/metrics
+observability:
+  tracing: true
+  grafana: true
 configFiles:
   mountPath: /deployments/config
 replicaCount: 1
@@ -31,5 +34,5 @@ podDisruptionBudget:
   enabled: false
 image:
   repository: ghcr.io/quantumtechpe/qt-auth-service
-  digest: sha256:86b1debf1a528125d916ec6077bd937fd0976a585e57e6d4befd85db59771b18
-  tag: sha-a5d1d64
+  digest: sha256:f72a8dc71080ce6cdcae9fb898dfe8798730a947caaca58c018af545c48ba887
+  tag: sha-dd76dd3
