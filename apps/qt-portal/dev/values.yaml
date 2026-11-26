@@ -1,4 +1,4 @@
-# GENERADO por el pipeline de CD desde QuantumTechPE/qt-portal@9184b8e9be59ba07207e54b7328af806ecdd4cbf (dev). No editar a mano:
+# GENERADO por el pipeline de CD desde QuantumTechPE/qt-portal@082a8e52f0dbbd6cfc2f200c6630335e06b24949 (dev). No editar a mano:
 # lo técnico se cambia en deploy/ del microservicio; la configuración, en qt-config.
 containerPort: 8080
 probes:
@@ -14,6 +14,9 @@ ingress:
   path: /
 metrics:
   enabled: false
+observability:
+  tracing: false
+  grafana: false
 configFiles:
   mountPath: /usr/share/nginx/html/runtime
 replicaCount: 1
@@ -30,5 +33,5 @@ podDisruptionBudget:
   enabled: false
 image:
   repository: ghcr.io/quantumtechpe/qt-portal
-  digest: sha256:77c40d9081690b41196f7fc9dc1f78b8552972f509765a12850fa1e93f5b2415
-  tag: sha-9184b8e
+  digest: sha256:d51e3b3b0d9b31aa12a9cde5a9bb79d35ba4fbf2257e1394731d98217ad343a7
+  tag: sha-082a8e5
